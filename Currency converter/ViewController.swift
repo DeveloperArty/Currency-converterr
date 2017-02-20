@@ -10,9 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: Outlets
+    @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var pickerFrom: UIPickerView!
+    @IBOutlet weak var pickerTo: UIPickerView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.label.text = "Тут будет курс"
     }
 
     override func didReceiveMemoryWarning() {
