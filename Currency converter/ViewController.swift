@@ -18,10 +18,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: Properties 
+    let currencies = ["RUB", "USD", "EUR"]
     
+    // MARK: VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.label.text = "Тут будет курс"
+        
+        self.pickerTo.dataSource = self
+        self.pickerFrom.dataSource = self
+        
+        self.pickerTo.delegate = self
+        self.pickerFrom.delegate = self 
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,3 +41,24 @@ class ViewController: UIViewController {
 
 }
 
+// MARK: UIPickerViewDataSource
+extension ViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.currencies.count
+    }
+    
+}
+
+// MARK: UIPickerViewDelegate
+extension ViewController: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return currencies[row]
+    }
+    
+}
