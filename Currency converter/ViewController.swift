@@ -29,21 +29,20 @@ class ViewController: UIViewController {
         self.pickerTo.delegate = self
         self.pickerFrom.delegate = self
         
-        self.activityIndicator.hidesWhenStopped = true 
-        
-        self.retreiveCurrencyRate(baseCurrency: "USD", toCurrency: "RUB") { [weak self] (value) in
-            DispatchQueue.main.async(execute: {
-                if let strongSelf = self {
-                    strongSelf.label.text = value
-                }
-            })
-                                    
-        }
+        self.activityIndicator.hidesWhenStopped = true
+        self.requestCurrentCurrencyRate()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func currenciesExeptBase() -> [String] {
+        var currenciesExeptBase = currencies
+        currenciesExeptBase.remove(at: pickerFrom.selectedRow(inComponent: 0))
+        
+        return currenciesExeptBase
     }
 
     func requestCurrencyRates(baseCurrency: String, pasreHandler: @escaping (Data?, Error?) -> Void) {
@@ -98,6 +97,28 @@ class ViewController: UIViewController {
             completion(string)
         }
     }
+    
+    func requestCurrentCurrencyRate() {
+        self.activityIndicator.startAnimating()
+        self.label.text = ""
+        
+        let baseCurrencyIndex = self.pickerFrom.selectedRow(inComponent: 0)
+        let toCurrencyIndex = self.pickerTo.selectedRow(inComponent: 0)
+        
+        let baseCurrency = self.currencies[baseCurrencyIndex]
+        let toCurrency = self.currenciesExeptBase()[toCurrencyIndex]
+        
+        
+        self.retreiveCurrencyRate(baseCurrency: baseCurrency, toCurrency: toCurrency) { [weak self] (value) in
+            DispatchQueue.main.async(execute: {
+                if let strongSelf = self {
+                    strongSelf.label.text = value
+                    strongSelf.activityIndicator.stopAnimating()
+                }
+            })
+            
+        }
+    }
 }
 
 // MARK: UIPickerViewDataSource
@@ -108,6 +129,10 @@ extension ViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == pickerTo {
+            return currenciesExeptBase().count
+        }
+        
         return self.currencies.count
     }
     
@@ -117,7 +142,19 @@ extension ViewController: UIPickerViewDataSource {
 extension ViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == pickerTo {
+            return self.currenciesExeptBase()[row]
+        }
+        
         return currencies[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == pickerFrom {
+            self.pickerTo.reloadAllComponents()
+        }
+        
+        self.requestCurrentCurrencyRate()
     }
     
 }
