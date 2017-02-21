@@ -23,7 +23,15 @@ class CurrenciesLoader {
         
         self.retreiveCurrencyRate(baseCurrency: baseCurrency, toCurrency: toCurrency) { (value) in
             DispatchQueue.main.async(execute: {
-                
+                if value.components(separatedBy: " ").count != 2 {
+                    senderVC.fromCurrencyLabelWidth.constant = 0
+                    senderVC.updateViewConstraints()
+                    senderVC.label.textAlignment = .center
+                } else {
+                    senderVC.fromCurrencyLabelWidth.constant = 100
+                    senderVC.updateViewConstraints()
+                    senderVC.label.textAlignment = .right 
+                }
                 senderVC.label.text = value
                 senderVC.activityIndicator.stopAnimating()
             })
@@ -39,7 +47,7 @@ class CurrenciesLoader {
             if let parsedJSON = json {
                 if let rates = parsedJSON["rates"] as? Dictionary<String, Double> {
                     if let rate = rates[toCurrency] {
-                        value = "\(rate)  " + toCurrency
+                        value = "\(rate) " + toCurrency
                     } else {
                         value = "No rate for currency \"\(toCurrency)\" found"
                     }

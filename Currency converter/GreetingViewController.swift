@@ -10,6 +10,10 @@ import UIKit
 
 class GreetingViewController: UIViewController {
 
+    // Outlets
+    @IBOutlet weak var retryButton: UIButton!
+    
+    // Properties
     let currenciesSetup = CurrenciesSetup()
     var currencies: [String] = [] {
         willSet {
@@ -25,6 +29,10 @@ class GreetingViewController: UIViewController {
     // VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        retryButton.isEnabled = false
+        retryButton.isHidden = true
+        retryButton.layer.cornerRadius = retryButton.frame.height/2
+        
         currenciesSetup.getCurrenciesList(senderVC: self)
     }
 
@@ -40,13 +48,20 @@ class GreetingViewController: UIViewController {
         vc.currencies = sender as! [String]
     }
     
+    // UI Events
+    @IBAction func retryButtonPressed(_ sender: UIButton) {
+        currenciesSetup.getCurrenciesList(senderVC: self)
+    }
+    
+    
     // Alert Controller
     func notifyAnError(errorMessage: String) {
-        print("Oh..")
-        let alertController = UIAlertController(title: "Unable to load currency rates",
+        retryButton.isEnabled = true
+        retryButton.isHidden = false
+        let alertController = UIAlertController(title: "Unable To Load Currency Rates!",
                                                 message: errorMessage,
                                                 preferredStyle: .alert)
-        let actionOK = UIAlertAction(title: "Ok",
+        let actionOK = UIAlertAction(title: "Oh...",
                                      style: .default,
                                      handler: nil)
         alertController.addAction(actionOK)

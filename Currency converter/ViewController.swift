@@ -13,10 +13,13 @@ class ViewController: UIViewController{
     // Outlets
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var fromCurrencyLabel: UILabel!
+    @IBOutlet weak var fromCurrencyLabelWidth: NSLayoutConstraint!
     
     @IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var infoView: UIView!
     
     // Properties
     var currenciesLoader = CurrenciesLoader()
@@ -25,6 +28,7 @@ class ViewController: UIViewController{
     // VC Lifelcycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.infoView.alpha = 0
         self.label.text = "Тут будет курс"
         
         self.pickerView.delegate = self
@@ -44,11 +48,26 @@ class ViewController: UIViewController{
         super.didReceiveMemoryWarning()
     }
     
+    // Meths
     func currenciesExeptBase() -> [String] {
         var currenciesExeptBase = currencies
         currenciesExeptBase.remove(at: pickerView.selectedRow(inComponent: 0))
         return currenciesExeptBase
     }
+    
+    // UI Events
+    
+    @IBAction func showInfoButtonPressed(_ sender: UIButton) {
+        UIView.animate(withDuration: 1, animations: {
+            if self.infoView.alpha == 0 {
+                self.infoView.alpha = 1
+            } else {
+                self.infoView.alpha = 0
+            }
+        })
+        self.pickerView.isUserInteractionEnabled = !self.pickerView.isUserInteractionEnabled
+    }
+    
     
 }
 

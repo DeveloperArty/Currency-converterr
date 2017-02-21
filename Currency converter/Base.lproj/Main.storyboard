@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,25 +24,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5UW-0B-Tas">
-                                <rect key="frame" x="0.0" y="160" width="375" height="507"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="502"/>
                             </pickerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tw-lk-hiv">
-                                <rect key="frame" x="0.0" y="110" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="55"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Qqs-Cf-c9P">
-                                        <rect key="frame" x="162" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="160" y="0.0" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Qqs-Cf-c9P" secondAttribute="height" multiplier="1:1" id="ILJ-q2-ey0"/>
                                         </constraints>
                                     </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hU9-6N-8V8">
-                                        <rect key="frame" x="100" y="0.0" width="265" height="50"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hU9-6N-8V8">
+                                        <rect key="frame" x="100" y="0.0" width="265" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT6-y7-cxC">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Ssj-c1-iJD"/>
                                         </constraints>
@@ -57,7 +58,7 @@
                                     <constraint firstItem="Qqs-Cf-c9P" firstAttribute="height" secondItem="4tw-lk-hiv" secondAttribute="height" id="Ffw-FM-TTA"/>
                                     <constraint firstItem="bT6-y7-cxC" firstAttribute="top" secondItem="4tw-lk-hiv" secondAttribute="top" id="H1k-h9-ypd"/>
                                     <constraint firstItem="Qqs-Cf-c9P" firstAttribute="centerX" secondItem="4tw-lk-hiv" secondAttribute="centerX" id="IZx-Uh-zHh"/>
-                                    <constraint firstAttribute="height" constant="50" id="Y4e-GJ-1GF"/>
+                                    <constraint firstAttribute="height" constant="55" id="Y4e-GJ-1GF"/>
                                     <constraint firstItem="bT6-y7-cxC" firstAttribute="leading" secondItem="4tw-lk-hiv" secondAttribute="leading" id="Z5t-U6-dgx"/>
                                     <constraint firstAttribute="bottom" secondItem="hU9-6N-8V8" secondAttribute="bottom" id="b33-rl-1eZ"/>
                                     <constraint firstItem="hU9-6N-8V8" firstAttribute="top" secondItem="4tw-lk-hiv" secondAttribute="top" id="dbU-br-eRg"/>
@@ -65,21 +66,66 @@
                                     <constraint firstAttribute="bottom" secondItem="bT6-y7-cxC" secondAttribute="bottom" id="uh8-lD-Mn3"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKU-UI-ra7">
+                                <rect key="frame" x="20" y="60" width="335" height="587"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bubble" translatesAutoresizingMaskIntoConstraints="NO" id="1Qd-mG-xmX">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="587"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixe-cb-R3K">
+                                        <rect key="frame" x="30" y="30" width="275" height="527"/>
+                                        <string key="text">Данное мобильное приложене является конвертером валют. Данные текущих курсов формируются на основе данных ECB (Eoropean Central Bank)</string>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Ixe-cb-R3K" secondAttribute="bottom" constant="30" id="DDE-9Q-dej"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Qd-mG-xmX" secondAttribute="trailing" id="EDl-ez-xIC"/>
+                                    <constraint firstItem="1Qd-mG-xmX" firstAttribute="leading" secondItem="YKU-UI-ra7" secondAttribute="leading" id="KZm-Aj-AMQ"/>
+                                    <constraint firstItem="Ixe-cb-R3K" firstAttribute="leading" secondItem="YKU-UI-ra7" secondAttribute="leading" constant="30" id="X9L-w7-l1k"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ixe-cb-R3K" secondAttribute="trailing" constant="30" id="cBW-gg-9OJ"/>
+                                    <constraint firstItem="Ixe-cb-R3K" firstAttribute="top" secondItem="YKU-UI-ra7" secondAttribute="top" constant="30" id="jOo-U5-hA2"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Qd-mG-xmX" secondAttribute="bottom" id="ppL-5B-tuh"/>
+                                    <constraint firstItem="1Qd-mG-xmX" firstAttribute="top" secondItem="YKU-UI-ra7" secondAttribute="top" id="vA4-f0-jP4"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zz6-7T-VLv">
+                                <rect key="frame" x="285" y="40" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zz6-7T-VLv" secondAttribute="height" multiplier="1:1" id="joQ-G2-DYM"/>
+                                    <constraint firstAttribute="width" constant="40" id="ldV-KV-YXZ"/>
+                                </constraints>
+                                <state key="normal" image="Info"/>
+                                <connections>
+                                    <action selector="showInfoButtonPressed:" destination="9UX-Dq-izU" eventType="touchUpInside" id="BYv-ev-hsl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="upO-lZ-5P6" firstAttribute="top" secondItem="YKU-UI-ra7" secondAttribute="bottom" constant="20" id="1fn-hU-vlC"/>
                             <constraint firstItem="4tw-lk-hiv" firstAttribute="leading" secondItem="BJj-NF-YSt" secondAttribute="leading" id="8m1-9R-WLd"/>
                             <constraint firstItem="5UW-0B-Tas" firstAttribute="top" secondItem="4tw-lk-hiv" secondAttribute="bottom" id="Bc0-ir-nsi"/>
+                            <constraint firstAttribute="trailing" secondItem="zz6-7T-VLv" secondAttribute="trailing" constant="50" id="IU6-IL-gYO"/>
+                            <constraint firstItem="YKU-UI-ra7" firstAttribute="leading" secondItem="BJj-NF-YSt" secondAttribute="leading" constant="20" id="Lbj-u0-Nsf"/>
                             <constraint firstAttribute="trailing" secondItem="5UW-0B-Tas" secondAttribute="trailing" id="ZCO-FY-8Wb"/>
+                            <constraint firstItem="YKU-UI-ra7" firstAttribute="top" secondItem="V7k-tJ-T90" secondAttribute="bottom" constant="40" id="aFw-W4-IUX"/>
                             <constraint firstItem="5UW-0B-Tas" firstAttribute="leading" secondItem="BJj-NF-YSt" secondAttribute="leading" id="cd6-Bf-pFf"/>
+                            <constraint firstAttribute="trailing" secondItem="YKU-UI-ra7" secondAttribute="trailing" constant="20" id="de9-Yy-4IR"/>
                             <constraint firstAttribute="trailing" secondItem="4tw-lk-hiv" secondAttribute="trailing" id="n8T-lY-IoZ"/>
                             <constraint firstItem="4tw-lk-hiv" firstAttribute="top" secondItem="V7k-tJ-T90" secondAttribute="bottom" constant="90" id="rhF-Nd-bAu"/>
+                            <constraint firstItem="zz6-7T-VLv" firstAttribute="top" secondItem="V7k-tJ-T90" secondAttribute="bottom" constant="20" id="sFs-hJ-Byf"/>
                             <constraint firstItem="upO-lZ-5P6" firstAttribute="top" secondItem="5UW-0B-Tas" secondAttribute="bottom" id="wyj-UM-H86"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Qqs-Cf-c9P" id="p9A-dn-0qm"/>
                         <outlet property="fromCurrencyLabel" destination="bT6-y7-cxC" id="XdZ-ne-8ki"/>
+                        <outlet property="fromCurrencyLabelWidth" destination="Ssj-c1-iJD" id="Vpy-Jm-Yv2"/>
+                        <outlet property="infoView" destination="YKU-UI-ra7" id="tZY-Lg-yrg"/>
                         <outlet property="label" destination="hU9-6N-8V8" id="zB4-TI-523"/>
                         <outlet property="pickerView" destination="5UW-0B-Tas" id="fcf-gN-ac1"/>
                     </connections>
@@ -106,15 +152,33 @@
                                     <constraint firstAttribute="width" secondItem="8pT-YS-XhF" secondAttribute="height" multiplier="1:1" id="Nf1-iQ-gL2"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShM-q5-keZ">
+                                <rect key="frame" x="46" y="557" width="283" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="78n-Z2-vLW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Retry!">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="retryButtonPressed:" destination="56M-Mr-zCT" eventType="touchUpInside" id="7pY-7J-10L"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.51237309639999995" green="0.51237309639999995" blue="0.51237309639999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ShM-q5-keZ" firstAttribute="leading" secondItem="AXP-iv-gnF" secondAttribute="leadingMargin" constant="30" id="6gU-7m-7xn"/>
                             <constraint firstItem="8pT-YS-XhF" firstAttribute="leading" secondItem="AXP-iv-gnF" secondAttribute="leading" constant="20" symbolic="YES" id="87Y-vY-smZ"/>
+                            <constraint firstItem="CLV-5G-YUf" firstAttribute="top" secondItem="ShM-q5-keZ" secondAttribute="bottom" constant="60" id="EuF-bw-64w"/>
                             <constraint firstAttribute="trailing" secondItem="8pT-YS-XhF" secondAttribute="trailing" constant="20" symbolic="YES" id="SfU-wX-pcC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ShM-q5-keZ" secondAttribute="trailing" constant="30" id="f9W-mY-kcA"/>
                             <constraint firstItem="8pT-YS-XhF" firstAttribute="centerY" secondItem="AXP-iv-gnF" secondAttribute="centerY" id="zeb-eP-S8R"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="retryButton" destination="ShM-q5-keZ" id="zHR-wg-VmC"/>
                         <segue destination="9UX-Dq-izU" kind="show" identifier="toViewController" id="h9I-pn-t9o"/>
                     </connections>
                 </viewController>
@@ -124,6 +188,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bubble" width="122" height="156"/>
         <image name="Fin Tech Logo" width="266" height="236"/>
+        <image name="Info" width="170" height="170"/>
     </resources>
 </document>
