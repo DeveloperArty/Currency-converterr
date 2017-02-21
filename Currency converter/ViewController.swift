@@ -89,4 +89,10 @@ extension ViewController: UIPickerViewDelegate {
         self.currenciesLoader.requestCurrentCurrencyRate(senderVC: self)
     }
     
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+//        let view = UIView(frame: CGRect(x: 0, y: 0, width: pickerView.frame.width, height: 40))
+//        view.backgroundColor = UIColor.darkGray
+//        return view
+//    }
+    
 }

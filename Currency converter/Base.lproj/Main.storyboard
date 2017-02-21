@@ -1,71 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pZv-Xe-uhJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9UX-Dq-izU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Greeting View Controller-->
-        <scene sceneID="ptZ-Ax-Dw5">
-            <objects>
-                <viewController id="pZv-Xe-uhJ" customClass="GreetingViewController" customModule="Currency_converter" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="M79-N9-iaV"/>
-                        <viewControllerLayoutGuide type="bottom" id="3RC-sU-HqL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wKK-6K-ReU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gi1-Tq-Glw">
-                                <rect key="frame" x="10" y="20" width="355" height="627"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Мы приветствуем тебя, дорогой пользователь! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcF-MU-omx">
-                                        <rect key="frame" x="13" y="0.0" width="329.5" height="209"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fin Tech Logo" translatesAutoresizingMaskIntoConstraints="NO" id="UUs-5c-7rK">
-                                        <rect key="frame" x="44.5" y="209" width="266" height="209"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="fw9-ZW-tLQ">
-                                        <rect key="frame" x="0.0" y="418" width="355" height="209"/>
-                                        <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">Это приложение является мобильным конвертером валют. Данные текущих курсов формируются на основе данных ECB (Europeean Central Bank)</string>
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="22" name="Avenir-Heavy"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.15969327089999999" green="0.16805556420000001" blue="0.21028178929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="gi1-Tq-Glw" firstAttribute="top" secondItem="M79-N9-iaV" secondAttribute="bottom" id="4bp-XY-TJG"/>
-                            <constraint firstAttribute="trailing" secondItem="gi1-Tq-Glw" secondAttribute="trailing" constant="10" id="DQw-2k-0Mp"/>
-                            <constraint firstItem="3RC-sU-HqL" firstAttribute="top" secondItem="gi1-Tq-Glw" secondAttribute="bottom" constant="20" id="XKf-NJ-OdV"/>
-                            <constraint firstItem="gi1-Tq-Glw" firstAttribute="leading" secondItem="wKK-6K-ReU" secondAttribute="leading" constant="10" id="nAq-xR-EU8"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="toViewController" id="0nF-BV-MZD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="02S-qu-zOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-868.11594202898561" y="-200.54347826086959"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -124,7 +68,102 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="-129"/>
+            <point key="canvasLocation" x="45.600000000000001" y="-129.08545727136433"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fs9-Ex-hDH">
+            <objects>
+                <viewController id="9UX-Dq-izU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V7k-tJ-T90"/>
+                        <viewControllerLayoutGuide type="bottom" id="upO-lZ-5P6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BJj-NF-YSt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5UW-0B-Tas">
+                                <rect key="frame" x="10" y="160" width="355" height="457"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hU9-6N-8V8">
+                                <rect key="frame" x="10" y="50" width="355" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QDN-8H-WtO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fEw-dD-7yP">
+                                <rect key="frame" x="20" y="129" width="335" height="23"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Курс валюты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0i-LS-3Gt">
+                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Относительно" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tm0-Mv-9Gg">
+                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5UW-0B-Tas" firstAttribute="top" secondItem="fEw-dD-7yP" secondAttribute="bottom" constant="8" id="FR7-bW-l9W"/>
+                            <constraint firstAttribute="trailing" secondItem="hU9-6N-8V8" secondAttribute="trailing" constant="10" id="Hjv-c7-4uC"/>
+                            <constraint firstItem="5UW-0B-Tas" firstAttribute="top" secondItem="hU9-6N-8V8" secondAttribute="bottom" constant="70" id="J39-g6-CO2"/>
+                            <constraint firstAttribute="trailing" secondItem="fEw-dD-7yP" secondAttribute="trailing" constant="20" id="YmJ-t3-Ojx"/>
+                            <constraint firstAttribute="trailing" secondItem="5UW-0B-Tas" secondAttribute="trailing" constant="10" id="ZCO-FY-8Wb"/>
+                            <constraint firstItem="5UW-0B-Tas" firstAttribute="leading" secondItem="BJj-NF-YSt" secondAttribute="leading" constant="10" id="cd6-Bf-pFf"/>
+                            <constraint firstItem="hU9-6N-8V8" firstAttribute="leading" secondItem="BJj-NF-YSt" secondAttribute="leading" constant="10" id="dCN-Aa-KOe"/>
+                            <constraint firstItem="fEw-dD-7yP" firstAttribute="leading" secondItem="BJj-NF-YSt" secondAttribute="leading" constant="20" id="vBh-Pv-TbU"/>
+                            <constraint firstItem="upO-lZ-5P6" firstAttribute="top" secondItem="5UW-0B-Tas" secondAttribute="bottom" constant="50" id="wyj-UM-H86"/>
+                            <constraint firstItem="hU9-6N-8V8" firstAttribute="top" secondItem="V7k-tJ-T90" secondAttribute="bottom" constant="30" id="ybH-1E-SVg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XCv-FU-DKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023" y="-95"/>
+        </scene>
+        <!--Greeting View Controller-->
+        <scene sceneID="O6l-nl-OEb">
+            <objects>
+                <viewController id="56M-Mr-zCT" customClass="GreetingViewController" customModule="Currency_converter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LZe-25-23v"/>
+                        <viewControllerLayoutGuide type="bottom" id="CLV-5G-YUf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AXP-iv-gnF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fin Tech Logo" translatesAutoresizingMaskIntoConstraints="NO" id="8pT-YS-XhF">
+                                <rect key="frame" x="20" y="166" width="335" height="335"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8pT-YS-XhF" secondAttribute="height" multiplier="1:1" id="Nf1-iQ-gL2"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.51237309639999995" green="0.51237309639999995" blue="0.51237309639999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8pT-YS-XhF" firstAttribute="leading" secondItem="AXP-iv-gnF" secondAttribute="leading" constant="20" symbolic="YES" id="87Y-vY-smZ"/>
+                            <constraint firstAttribute="trailing" secondItem="8pT-YS-XhF" secondAttribute="trailing" constant="20" symbolic="YES" id="SfU-wX-pcC"/>
+                            <constraint firstItem="8pT-YS-XhF" firstAttribute="centerY" secondItem="AXP-iv-gnF" secondAttribute="centerY" id="zeb-eP-S8R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toViewController" id="2sg-OE-89p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lq4-2M-eIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1055" y="-169"/>
         </scene>
     </scenes>
     <resources>
