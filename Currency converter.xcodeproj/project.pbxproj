@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84FD1CCD1E5C851100445223 /* CurrenciesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1CCC1E5C851100445223 /* CurrenciesLoader.swift */; };
+		84FD1CCF1E5C862900445223 /* CurrenciesListRequester .swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD1CCE1E5C862900445223 /* CurrenciesListRequester .swift */; };
 		84FF47291E5AF9C8001F7ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF47281E5AF9C8001F7ED4 /* AppDelegate.swift */; };
 		84FF472B1E5AF9C8001F7ED4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF472A1E5AF9C8001F7ED4 /* ViewController.swift */; };
 		84FF472E1E5AF9C8001F7ED4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FF472C1E5AF9C8001F7ED4 /* Main.storyboard */; };
 		84FF47301E5AF9C8001F7ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FF472F1E5AF9C8001F7ED4 /* Assets.xcassets */; };
 		84FF47331E5AF9C8001F7ED4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FF47311E5AF9C8001F7ED4 /* LaunchScreen.storyboard */; };
+		84FF473C1E5B2190001F7ED4 /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF473B1E5B2190001F7ED4 /* GreetingViewController.swift */; };
+		84FF47411E5B2D51001F7ED4 /* CurrenciesSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF47401E5B2D51001F7ED4 /* CurrenciesSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84FD1CCC1E5C851100445223 /* CurrenciesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesLoader.swift; sourceTree = "<group>"; };
+		84FD1CCE1E5C862900445223 /* CurrenciesListRequester .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CurrenciesListRequester .swift"; sourceTree = "<group>"; };
 		84FF47251E5AF9C8001F7ED4 /* Currency converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FF47281E5AF9C8001F7ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FF472A1E5AF9C8001F7ED4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,8 @@
 		84FF472F1E5AF9C8001F7ED4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84FF47321E5AF9C8001F7ED4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84FF47341E5AF9C8001F7ED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84FF473B1E5B2190001F7ED4 /* GreetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
+		84FF47401E5B2D51001F7ED4 /* CurrenciesSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84FD1CD11E5C86AB00445223 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				84FF47401E5B2D51001F7ED4 /* CurrenciesSetup.swift */,
+				84FD1CCE1E5C862900445223 /* CurrenciesListRequester .swift */,
+			);
+			name = Setup;
+			sourceTree = "<group>";
+		};
+		84FD1CD21E5C876C00445223 /* Data Load */ = {
+			isa = PBXGroup;
+			children = (
+				84FD1CCC1E5C851100445223 /* CurrenciesLoader.swift */,
+			);
+			name = "Data Load";
+			sourceTree = "<group>";
+		};
 		84FF471C1E5AF9C8001F7ED4 = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +79,41 @@
 		84FF47271E5AF9C8001F7ED4 /* Currency converter */ = {
 			isa = PBXGroup;
 			children = (
-				84FF47281E5AF9C8001F7ED4 /* AppDelegate.swift */,
-				84FF472A1E5AF9C8001F7ED4 /* ViewController.swift */,
 				84FF472C1E5AF9C8001F7ED4 /* Main.storyboard */,
-				84FF472F1E5AF9C8001F7ED4 /* Assets.xcassets */,
-				84FF47311E5AF9C8001F7ED4 /* LaunchScreen.storyboard */,
-				84FF47341E5AF9C8001F7ED4 /* Info.plist */,
+				84FF473D1E5B2195001F7ED4 /* View Controllers */,
+				84FF47421E5B2D5E001F7ED4 /* DAL */,
+				84FF473A1E5B1D19001F7ED4 /* Supporting Files */,
 			);
 			path = "Currency converter";
+			sourceTree = "<group>";
+		};
+		84FF473A1E5B1D19001F7ED4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84FF47311E5AF9C8001F7ED4 /* LaunchScreen.storyboard */,
+				84FF47281E5AF9C8001F7ED4 /* AppDelegate.swift */,
+				84FF472F1E5AF9C8001F7ED4 /* Assets.xcassets */,
+				84FF47341E5AF9C8001F7ED4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84FF473D1E5B2195001F7ED4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84FF473B1E5B2190001F7ED4 /* GreetingViewController.swift */,
+				84FF472A1E5AF9C8001F7ED4 /* ViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		84FF47421E5B2D5E001F7ED4 /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				84FD1CD11E5C86AB00445223 /* Setup */,
+				84FD1CD21E5C876C00445223 /* Data Load */,
+			);
+			name = DAL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +189,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FD1CCF1E5C862900445223 /* CurrenciesListRequester .swift in Sources */,
+				84FF47411E5B2D51001F7ED4 /* CurrenciesSetup.swift in Sources */,
+				84FD1CCD1E5C851100445223 /* CurrenciesLoader.swift in Sources */,
 				84FF472B1E5AF9C8001F7ED4 /* ViewController.swift in Sources */,
+				84FF473C1E5B2190001F7ED4 /* GreetingViewController.swift in Sources */,
 				84FF47291E5AF9C8001F7ED4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +356,7 @@
 				84FF47391E5AF9C8001F7ED4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

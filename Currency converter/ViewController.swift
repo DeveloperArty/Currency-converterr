@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CurrenciesListRequester {
 
+    // Outlets
     @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var pickerFrom: UIPickerView!
@@ -17,8 +18,27 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let currencies = ["RUB", "USD", "EUR"]
+    // Properties
+    let currenciesSetup = CurrenciesSetup() 
+    var currencies: [String] = [] {
+        willSet {
+            if let firstElement = newValue.first {
+                switch firstElement {
+                case "No currencies found", "No \"rates\" field found", "No JSON value parsed":
+                    self.notifyAnError(errorMessage: firstElement)
+                default:
+                    DispatchQueue.main.async(execute: {
+                        self.pickerTo.reloadAllComponents()
+                        self.pickerFrom.reloadAllComponents()
+                        self.requestCurrentCurrencyRate()
+                    })
+                    print("Currencies were loaded successfully")
+                }
+            }
+        }
+    }
 
+    // VC Lifelcycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.label.text = "Тут будет курс"
@@ -30,7 +50,8 @@ class ViewController: UIViewController {
         self.pickerFrom.delegate = self
         
         self.activityIndicator.hidesWhenStopped = true
-        self.requestCurrentCurrencyRate()
+        
+        self.currenciesSetup.getCurrenciesList(senderVC: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,21 +59,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Curr Gett
     func currenciesExeptBase() -> [String] {
+        guard currencies.isEmpty == false else {
+            return []
+        }
         var currenciesExeptBase = currencies
         currenciesExeptBase.remove(at: pickerFrom.selectedRow(inComponent: 0))
         
         return currenciesExeptBase
-    }
-
-    func requestCurrencyRates(baseCurrency: String, pasreHandler: @escaping (Data?, Error?) -> Void) {
-        let url = URL(string: "https://api.fixer.io/latest?base=" + baseCurrency)!
         
-        let dataTask = URLSession.shared.dataTask(with: url) { (dataReceived, response, error) in
-            pasreHandler(dataReceived, error)
-        }
-        
-        dataTask.resume()
     }
     
     func parseCurrencyRatesResponce(data: Data?, toCurrency: String) -> String {
@@ -62,7 +78,6 @@ class ViewController: UIViewController {
             let json = try JSONSerialization.jsonObject(with: data!, options: []) as? Dictionary<String, Any>
             
             if let parsedJSON = json {
-                print("\(parsedJSON)")
                 if let rates = parsedJSON["rates"] as? Dictionary<String, Double> {
                     if let rate = rates[toCurrency] {
                         value = "\(rate)"
@@ -82,8 +97,18 @@ class ViewController: UIViewController {
         return value
     }
     
+    func getCurrencyRates(baseCurrency: String, pasreHandler: @escaping (Data?, Error?) -> Void) {
+        let url = URL(string: "https://api.fixer.io/latest?base=" + baseCurrency)!
+        
+        let dataTask = URLSession.shared.dataTask(with: url) { (dataReceived, response, error) in
+            pasreHandler(dataReceived, error)
+        }
+        
+        dataTask.resume()
+    }
+    
     func retreiveCurrencyRate(baseCurrency: String, toCurrency: String, completion: @escaping (String) -> Void) {
-        self.requestCurrencyRates(baseCurrency: baseCurrency) { [weak self] (data, error) in
+        self.getCurrencyRates(baseCurrency: baseCurrency) { [weak self] (data, error) in
             var string = "No currency retrieved!"
             
             if let currentError = error {
@@ -118,6 +143,21 @@ class ViewController: UIViewController {
             })
             
         }
+    }
+    
+    // UI Notifications
+    func notifyAnError(errorMessage: String) {
+        print("Oh..")
+        let alertController = UIAlertController(title: "Unable to load currency rates",
+                                                message: errorMessage,
+                                                preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "Ok..",
+                                     style: .default,
+                                     handler: nil)
+        alertController.addAction(actionOK)
+        self.present(alertController,
+                     animated: true,
+                     completion: nil)
     }
 }
 
@@ -154,7 +194,9 @@ extension ViewController: UIPickerViewDelegate {
             self.pickerTo.reloadAllComponents()
         }
         
-        self.requestCurrentCurrencyRate()
+        if currencies.isEmpty == false {
+            self.requestCurrentCurrencyRate()
+        }
     }
     
 }

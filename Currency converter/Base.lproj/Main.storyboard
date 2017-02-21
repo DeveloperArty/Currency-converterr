@@ -9,6 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Greeting View Controller-->
+        <scene sceneID="ptZ-Ax-Dw5">
+            <objects>
+                <viewController id="pZv-Xe-uhJ" customClass="GreetingViewController" customModule="Currency_converter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M79-N9-iaV"/>
+                        <viewControllerLayoutGuide type="bottom" id="3RC-sU-HqL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wKK-6K-ReU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gi1-Tq-Glw">
+                                <rect key="frame" x="10" y="20" width="355" height="627"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Мы приветствуем тебя, дорогой пользователь! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcF-MU-omx">
+                                        <rect key="frame" x="13" y="0.0" width="329.5" height="209"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fin Tech Logo" translatesAutoresizingMaskIntoConstraints="NO" id="UUs-5c-7rK">
+                                        <rect key="frame" x="44.5" y="209" width="266" height="209"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="fw9-ZW-tLQ">
+                                        <rect key="frame" x="0.0" y="418" width="355" height="209"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Это приложение является мобильным конвертером валют. Данные текущих курсов формируются на основе данных ECB (Europeean Central Bank)</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="22" name="Avenir-Heavy"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15969327089999999" green="0.16805556420000001" blue="0.21028178929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gi1-Tq-Glw" firstAttribute="top" secondItem="M79-N9-iaV" secondAttribute="bottom" id="4bp-XY-TJG"/>
+                            <constraint firstAttribute="trailing" secondItem="gi1-Tq-Glw" secondAttribute="trailing" constant="10" id="DQw-2k-0Mp"/>
+                            <constraint firstItem="3RC-sU-HqL" firstAttribute="top" secondItem="gi1-Tq-Glw" secondAttribute="bottom" constant="20" id="XKf-NJ-OdV"/>
+                            <constraint firstItem="gi1-Tq-Glw" firstAttribute="leading" secondItem="wKK-6K-ReU" secondAttribute="leading" constant="10" id="nAq-xR-EU8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02S-qu-zOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-868.11594202898561" y="-200.54347826086959"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -37,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="354" width="375" height="313"/>
                             </pickerView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kv0-RO-ciw">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,6 +120,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="46" y="-129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Fin Tech Logo" width="266" height="236"/>
+    </resources>
 </document>
