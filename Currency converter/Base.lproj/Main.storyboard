@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pZv-Xe-uhJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -58,6 +58,9 @@
                             <constraint firstItem="gi1-Tq-Glw" firstAttribute="leading" secondItem="wKK-6K-ReU" secondAttribute="leading" constant="10" id="nAq-xR-EU8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toViewController" id="0nF-BV-MZD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02S-qu-zOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,6 +114,7 @@
                             <constraint firstItem="Uuc-h0-gEf" firstAttribute="top" secondItem="qBY-KA-2pf" secondAttribute="bottom" constant="10" id="uNV-91-eMn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="SgH-1Y-YN2"/>
                     <connections>
                         <outlet property="activityIndicator" destination="kv0-RO-ciw" id="cX0-oO-rC5"/>
                         <outlet property="label" destination="Uuc-h0-gEf" id="Vhd-bQ-TLR"/>

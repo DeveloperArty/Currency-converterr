@@ -10,26 +10,48 @@ import UIKit
 
 class GreetingViewController: UIViewController {
 
+    let currenciesSetup = CurrenciesSetup()
+    var currencies: [String] = [] {
+        willSet {
+            if newValue.count == 1 {
+                self.notifyAnError(errorMessage: newValue.first!)
+            } else {
+                self.performSegue(withIdentifier: "toViewController", sender: newValue)
+                print("Currencies were loaded successfully")
+            }
+        }
+    }
+
+    // VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        currenciesSetup.getCurrenciesList(sender: self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let vc = segue.destination as? ViewController else {
+            return
+        }
+        vc.currencies = sender as! [String]
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Alert Controller
+    func notifyAnError(errorMessage: String) {
+        print("Oh..")
+        let alertController = UIAlertController(title: "Unable to load currency rates",
+                                                message: errorMessage,
+                                                preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "Ok",
+                                     style: .default,
+                                     handler: nil)
+        alertController.addAction(actionOK)
+        self.present(alertController,
+                     animated: true,
+                     completion: nil)
     }
-    */
-
 }

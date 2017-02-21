@@ -13,10 +13,11 @@ class CurrenciesSetup {
     private let latestURL = URL(string: "https://api.fixer.io/latest")!
     
     
-    func getCurrenciesList(senderVC: ViewController) {
-        self.retrieveCurrencies(completion: { [weak self] (value) in
-            senderVC.currencies = value
+    func getCurrenciesList(sender: GreetingViewController) {
+        self.retrieveCurrencies(completion: { value in
+            sender.currencies = value
         })
+
     }
     
     private func askForLatest(parseHandler: @escaping (Data?,Error?) -> Void ) {
