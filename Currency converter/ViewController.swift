@@ -12,9 +12,9 @@ class ViewController: UIViewController{
 
     // Outlets
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var fromCurrencyLabel: UILabel!
     
-    @IBOutlet weak var pickerFrom: UIPickerView!
-    @IBOutlet weak var pickerTo: UIPickerView!
+    @IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -27,15 +27,17 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         self.label.text = "Тут будет курс"
         
-        self.pickerTo.dataSource = self
-        self.pickerFrom.dataSource = self
-        
-        self.pickerTo.delegate = self
-        self.pickerFrom.delegate = self
+        self.pickerView.delegate = self
+        self.pickerView.dataSource = self
         
         self.activityIndicator.hidesWhenStopped = true
-        
         self.currenciesLoader.requestCurrentCurrencyRate(senderVC: self)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fromCurrencyLabel.text = currencies[pickerView.selectedRow(inComponent: 0)] + "  ="
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,12 +45,9 @@ class ViewController: UIViewController{
     }
     
     func currenciesExeptBase() -> [String] {
-        
         var currenciesExeptBase = currencies
-        currenciesExeptBase.remove(at: pickerFrom.selectedRow(inComponent: 0))
-        
+        currenciesExeptBase.remove(at: pickerView.selectedRow(inComponent: 0))
         return currenciesExeptBase
-        
     }
     
 }
@@ -57,11 +56,11 @@ class ViewController: UIViewController{
 extension ViewController: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == pickerTo {
+        if component == 1 {
             return currenciesExeptBase().count
         }
         
@@ -74,7 +73,7 @@ extension ViewController: UIPickerViewDataSource {
 extension ViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == pickerTo {
+        if component == 1 {
             return self.currenciesExeptBase()[row]
         }
         
@@ -82,11 +81,13 @@ extension ViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == pickerFrom {
-            self.pickerTo.reloadAllComponents()
+        if component == 0 {
+            self.pickerView.reloadAllComponents()
+            fromCurrencyLabel.text = currencies[row] + "  ="
         }
-        
+            
         self.currenciesLoader.requestCurrentCurrencyRate(senderVC: self)
+        
     }
     
 //    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {

@@ -25,7 +25,7 @@ class GreetingViewController: UIViewController {
     // VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        currenciesSetup.getCurrenciesList(sender: self)
+        currenciesSetup.getCurrenciesList(senderVC: self)
     }
 
     override func didReceiveMemoryWarning() {

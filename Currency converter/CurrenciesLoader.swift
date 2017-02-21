@@ -14,8 +14,8 @@ class CurrenciesLoader {
         senderVC.activityIndicator.startAnimating()
         senderVC.label.text = ""
         
-        let baseCurrencyIndex = senderVC.pickerFrom.selectedRow(inComponent: 0)
-        let toCurrencyIndex = senderVC.pickerTo.selectedRow(inComponent: 0)
+        let baseCurrencyIndex = senderVC.pickerView.selectedRow(inComponent: 0)
+        let toCurrencyIndex = senderVC.pickerView.selectedRow(inComponent: 1)
         
         let baseCurrency = senderVC.currencies[baseCurrencyIndex]
         let toCurrency = senderVC.currenciesExeptBase()[toCurrencyIndex]
@@ -23,10 +23,10 @@ class CurrenciesLoader {
         
         self.retreiveCurrencyRate(baseCurrency: baseCurrency, toCurrency: toCurrency) { (value) in
             DispatchQueue.main.async(execute: {
+                
                 senderVC.label.text = value
                 senderVC.activityIndicator.stopAnimating()
             })
-            
         }
     }
     
@@ -39,7 +39,7 @@ class CurrenciesLoader {
             if let parsedJSON = json {
                 if let rates = parsedJSON["rates"] as? Dictionary<String, Double> {
                     if let rate = rates[toCurrency] {
-                        value = "\(rate)"
+                        value = "\(rate)  " + toCurrency
                     } else {
                         value = "No rate for currency \"\(toCurrency)\" found"
                     }
